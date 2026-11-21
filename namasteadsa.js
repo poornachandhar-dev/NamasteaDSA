@@ -721,31 +721,83 @@
 //Insertion Sort
 
 
-let arr = [7,1,5,12,-10,0,4,3,2]
+// let arr = [7,1,5,12,-10,0,4,3,2]
 
 
-function insertionsort(a){
+// function insertionsort(a){
 
-    let n = a.length
+//     let n = a.length
 
-    for(let i=1;i<n;i++){
-        let curr=a[i];
-        let prev = i-1 
+//     for(let i=1;i<n;i++){
+//         let curr=a[i];
+//         let prev = i-1 
 
-        while(a[prev] > curr && prev >=0 ){
-            a[prev+1] = a[prev];
-            prev--;
-        }
-        a[prev+1] = curr;
+//         while(a[prev] > curr && prev >=0 ){
+//             a[prev+1] = a[prev];
+//             prev--;
+//         }
+//         a[prev+1] = curr;
+//     }
+
+//     return arr;
+// }
+
+
+
+// let result = insertionsort(arr)
+// console.log(result)
+
+// merge sort
+function mergeSort(nums) {
+    // Base case
+    if (nums.length <= 1) {
+        return nums;
     }
 
-    return arr;
+    // Find middle
+    let mid = Math.floor(nums.length / 2);
+
+    // Divide the array
+    let left = mergeSort(nums.slice(0, mid));
+    let right = mergeSort(nums.slice(mid));
+
+    // Merge the sorted arrays
+    return merge(left, right);
+}
+
+function merge(left, right) {
+    let result = [];
+
+    let i = 0;
+    let j = 0;
+
+    // Compare elements from left and right
+    while (i < left.length && j < right.length) {
+
+        if (left[i] <= right[j]) {
+            result.push(left[i]);
+            i++;
+        } else {
+            result.push(right[j]);
+            j++;
+        }
+    }
+
+    // Add remaining elements
+    return [
+        ...result,
+        ...left.slice(i),
+        ...right.slice(j)
+    ];
 }
 
 
+// Test
+let nums = [5, 2, 3, 1];
 
-let result = insertionsort(arr)
-console.log(result)
+let sortedArray = mergeSort(nums);
+
+console.log(sortedArray);
 
 
 
