@@ -102,3 +102,36 @@
 
 // let result = countnumber(n)
 // console.log(result)
+
+
+
+
+
+
+
+//Palindram Nuber 
+
+function palindram(n){
+
+
+    let xcopy = n 
+    let rev =0 
+    while(n>0){
+        let rem = (n%10)
+        rev = (10* rev) + rem
+        n= Math.floor(n/10)
+    }
+
+    if(rev == xcopy){
+        return true
+    }
+
+    else{
+        return false
+    }
+
+}
+
+let num = 121
+let result = palindram(num)
+console.log(result)
