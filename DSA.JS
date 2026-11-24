@@ -111,27 +111,49 @@
 
 //Palindram Nuber 
 
-function palindram(n){
+// function palindram(n){
 
 
-    let xcopy = n 
-    let rev =0 
+//     let xcopy = n 
+//     let rev =0 
+//     while(n>0){
+//         let rem = (n%10)
+//         rev = (10* rev) + rem
+//         n= Math.floor(n/10)
+//     }
+
+//     if(rev == xcopy){
+//         return true
+//     }
+
+//     else{
+//         return false
+//     }
+
+// }
+
+// let num = 121
+// let result = palindram(num)
+// console.log(result)
+
+
+
+function reverse(n){
+
+    let nCopy = n
+    let rev = 0
+    n = Math.abs(n)
+
     while(n>0){
-        let rem = (n%10)
-        rev = (10* rev) + rem
+        let last = (n%10)
+        rev = (10* rev) + last
         n= Math.floor(n/10)
+
     }
 
-    if(rev == xcopy){
-        return true
-    }
-
-    else{
-        return false
-    }
-
+   return (nCopy < 0 )? -rev : rev
 }
 
-let num = 121
-let result = palindram(num)
-console.log(result)
+ let num = -121
+ let result = reverse(num)
+ console.log(result)
