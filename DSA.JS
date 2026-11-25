@@ -138,22 +138,47 @@
 
 
 
-function reverse(n){
+// function reverse(n){
 
-    let nCopy = n
-    let rev = 0
-    n = Math.abs(n)
+//     let nCopy = n
+//     let rev = 0
+//     n = Math.abs(n)
 
-    while(n>0){
-        let last = (n%10)
-        rev = (10* rev) + last
-        n= Math.floor(n/10)
+//     while(n>0){
+//         let last = (n%10)
+//         rev = (10* rev) + last
+//         n= Math.floor(n/10)
+
+//     }
+
+//    return (nCopy < 0 )? -rev : rev
+// }
+
+//  let num = -121
+//  let result = reverse(num)
+//  console.log(result)
+
+
+//Remove Duplication from sorted array  non-decreasing order [0,0,1,1,1,2,2,3,3,4]
+
+
+function duplicate(nums){
+
+    let x = 0;
+    for(let i=0;i<nums.length;i++){
+
+        if(nums[i] > nums[x]){
+            x=x+1
+        
+            nums[x] = nums[i]
+        }
 
     }
 
-   return (nCopy < 0 )? -rev : rev
+    return x+1
 }
 
- let num = -121
- let result = reverse(num)
- console.log(result)
+
+let nums = [0,0,1,1,1,2,2,3,3,4]
+let result = duplicate(nums)
+console.log(result)
