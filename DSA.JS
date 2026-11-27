@@ -189,25 +189,50 @@
 
 
 
-function removeelements(nums,val){
+// function removeelements(nums,val){
 
-    let x = 0
-    for(let i = 0; i< nums.length; i++){
+//     let x = 0
+//     for(let i = 0; i< nums.length; i++){
 
-        if(nums[i] != val){
-            nums[x] = nums[i]
+//         if(nums[i] != val){
+//             nums[x] = nums[i]
 
-            x= x+1
+//             x= x+1
 
-        }
+//         }
+//     }
+//     return x
+
+// }
+
+
+
+// let nums = [3,1,6, 2, 3, 3, 4]
+
+// let result = removeelements(nums,3)
+// console.log(result)
+
+
+
+
+
+function reversestring(S){
+
+    let length = S.length
+    let halflength = Math.floor(length/2)
+    for(let i=0; i<halflength;i++){
+        let temp = S[i]
+        S[i] = S[length-1-i]
+        S[length-1-i] = temp
     }
-    return x
-
+    return S
 }
 
 
 
-let nums = [3,1,6, 2, 3, 3, 4]
 
-let result = removeelements(nums,3)
+
+let S = ["h","e","l","l","o"]
+
+let result = reversestring(S)
 console.log(result)
